@@ -166,10 +166,10 @@ CTRL+P CTRL+Q zum detachen der shell
 
   * Müssen wir hier nicht erklären, was wirklich passiert ist?
   * Container start bedeutet ja einiges:
-    - Write layer über das Images
+    - Write Layer über das Image
     - Bereitstellen des Netzwerks
-    - Schaffen eines Namespace
-    - Einschränkungen auf der Prozess vornehmen (CGroups, Capabillities)
+    - Schaffen eines Namespaces
+    - Einschränkungen auf den von Docker erstellten Prozessen vornehmen (CGroups, Capabillities)
     - Optional
       - Links vermitteln
       - Volumen mounten
