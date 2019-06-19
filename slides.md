@@ -302,7 +302,7 @@ Anzeige welche Rechte wirklich vergeben sind im /proc File System.
 ## Ziel: Apache-Container manuell bauen 
 
 ```bash
-~$ CID=`docker run –tdi ubuntu`
+~$ CID=`docker run -tdi ubuntu`
 4fa4778a965316f24c968e47bf19ec1d555ac131279dcadc623113b95dd3555b
 
 ~$ docker attach $CID
