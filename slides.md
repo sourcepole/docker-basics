@@ -62,7 +62,7 @@ tianon/centos                CentOS 5 and 6, created using rinse instea...   28
 saltstack/centos-6-minimal                                                   6
 blalor/centos                Bare-bones base CentOS 6.5 image                6
 
-$ docker search -s 100 centos
+$ docker search --filter=stars=100 centos
 NAME      DESCRIPTION                     STARS     OFFICIAL   AUTOMATED
 centos    The official build of CentOS.   442       [OK]
 ```
