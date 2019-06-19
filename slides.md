@@ -87,7 +87,7 @@ $ docker pull redis:latest
 ***
   * **Wichtig:** Tag mit angeben! Sonst wird das gesamte Repository gezogen (z.B. Ubuntu 12.04/12.10/13.04/13.10/14.04  >> 1GB)
 
-**`~$ docker images | inspect` **
+**`~$ docker images ; docker inspect` **
 #### Die lokalen Images ansehen
 
 Ansehen der lokal gespeicherten Images, inkl. Details
@@ -198,7 +198,7 @@ e6aa98c81a41
   * Es existieren verschiedene Filtermöglichkeiten (`docker ps --help`)
 
 
-**`~$ docker ps | attach` **
+**`~$ docker ps ; docker attach` **
 #### Sich mit interaktiven Containern verbinden
 
 
@@ -405,7 +405,7 @@ vagrant@docker-workshop:~$ curl http://127.0.0.1:8000/
 
 ---
 
-**`~$ docker stop | kill` **
+**`~$ docker stop ; docker kill` **
 #### Container stoppen
 
 Sendet SIGTERM und/oder SIGKILL an einen Container-Prozess
@@ -446,7 +446,7 @@ bfb8b5a2ad34        4 days ago          /bin/sh -c #(nop) ADD file:a889e7d86acdb
 Interessant ist die SIZE-Spalte, welche Aktion wie viel zum FS-Volumen beigetragen hat ( Squashing *)
 
 
-**`~$ docker run | VOLUMES` **
+**`~$ docker run # VOLUMES` **
 #### Mounten von Verzeichnissen in Container
 
 Instanziieren eines einzelnen Containers
@@ -568,7 +568,7 @@ c2bbd009cf3b        infrabricks/apache2:latest   /usr/sbin/apache2 -D   14 secon
 ***
 Keine Besonderheiten
 
-**`~$ docker save | load` **
+**`~$ docker save ; docker load` **
 #### Container-Images als Tarballs transportieren
 Speichert die FS-Layer eines Images als Tarball.
 Die lassen sich unabhängig von Registries transportieren.
