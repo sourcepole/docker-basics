@@ -286,7 +286,7 @@ root                4201                7159                0                   
  4201 pts/3    00:00:00 bash
 ~$ ps -p 7159
   PID TTY          TIME CMD
- 7159 ?        00:03:01 docker
+ 7159 ?        00:03:01 containerd-shim
 ```
 ***
   * Nur rudimentäre Informationen (s. deep dive später)
