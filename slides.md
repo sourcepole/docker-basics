@@ -391,7 +391,7 @@ infrabricks/httpd     2.2                 ffdb1d64ba4d        8 minutes ago     
 	-e APACHE_LOCK_DIR=/var/run/lock \
 	-e APACHE_PID_FILE=/var/log/apache2/apache.pid \
 	infrabricks/httpd:2.2 \
-	/usr/sbin/apache2 -D FOREGROUND
+	/usr/sbin/apachectl -D FOREGROUND
 04cbe4ab97d71594b4b5383d07d8a499691be1dd5e027482edea48e7fe685084
 
 vagrant@docker-workshop:~$ netstat -nltp | grep 8000
