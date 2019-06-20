@@ -683,13 +683,10 @@ root@f8c1ac264325:/# grep n1 /etc/hosts
   * Ausführliche Version siehe: https://docs.docker.com/compose/gettingstarted/
   * Code aus https://github.com/vegasbrianc/docker-compose-demo/blob/master/app.py
 
-***
 ```bash
 $ sudo apt-get install docker-compose 
 ```
-***
 
-***
 ```bash
 $ mkdir composetest
 $ cd composetest
@@ -698,7 +695,6 @@ $ cd composetest
 
 Datei `app.py` erstellen:
 
-***
 ```python
 from redis import Redis
 from flask import Flask
@@ -711,11 +707,9 @@ def hello():
     redis.incr('hits')
     return 'Hello World! I have been seen %s times.\n' % redis.get('hits')
 ```
-***
 
 `requirements.txt` erstellen:
 
-***
 ```bash
 flask
 redis
@@ -724,7 +718,6 @@ redis
 
 `Dockerfile` für Web Applikation erstellen:
 
-***
 ```Dockerfile
 FROM python:3.7-alpine
 WORKDIR /code
@@ -736,11 +729,9 @@ RUN pip install -r requirements.txt
 COPY . .
 CMD ["flask", "run"]
 ```
-***
 
 `docker-compose.yml` erstellen:
 
-***
 ```YAML
 version: '3'
 services:
@@ -751,6 +742,11 @@ services:
   redis:
     image: "redis:alpine"
 ```
+
+```bash
+~composetest$ docker-compose up`
+```
+
 ***
 ---
 
