@@ -429,9 +429,9 @@ Stop kann mit –t <timeout_secs> ein Timeout gegeben werden, danach wird automa
 Zeigt Änderungen der FS-Layer über die Zeit an.
 ***
 ```bash
-$ docker history infrabricks/httpd
-IMAGE               CREATED             CREATED BY                                      SIZE
-ffdb1d64ba4d        About an hour ago   /bin/bash                                       34.76 MB
+~$ docker history infrabricks/httpd
+IMAGE               CREATED             CREATED BY                                      SIZE       COMMENT
+ffdb1d64ba4d        About an hour ago   /bin/bash                                       34.76 MB   installed apache
 96864a7d2df3        4 days ago          /bin/sh -c #(nop) CMD [/bin/bash]               0 B
 809ed259f845        4 days ago          /bin/sh -c apt-get update && apt-get dist-upg   11.68 MB
 9387bcc9826e        4 days ago          /bin/sh -c sed -i 's/^#\s*\(deb.*universe\)$/   1.895 kB
