@@ -670,10 +670,11 @@ N1_PORT_8000_TCP_ADDR=172.17.0.3
 N1_PORT=tcp://172.17.0.3:8000
 N1_PORT_8000_TCP=tcp://172.17.0.3:8000
 N1_NAME=/n2/n1
-
+root@f8c1ac264325:/# grep n1 /etc/hosts
+172.17.0.3      n1 cc79ec0c9ae
 ```
 ***
-  * Funktioniert nicht zyklisch (N2  N1, da der Container erstmal da sein muss)
+  * Funktioniert nicht zyklisch (N2 ↔ N1, da der Container erstmal da sein muss)
   * Skaliert nicht. (Was wenn ich 2x N1 habe?)
   * Abhängigkeiten nicht dynamisch (Wenn N1 neu, dann muss auch N2 neu)
 ---
