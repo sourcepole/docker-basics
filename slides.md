@@ -475,17 +475,20 @@ $ cd apache2-build/
 ~/apache2-build$ echo '<html><body>Docker world</body></html>' > html/index.html
 
 $ cat Dockerfile
-FROM ubuntu:14.04
+FROM ubuntu:latest
 
-RUN apt-get update -yqq
+RUN apt-get update  -yqq
 RUN apt-get install -yqq apache2
+RUN mkdir /var/run/apache2
+RUN chown www-data.www-data /var/run/apache2
 
-ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_USER  www-data
 ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-ENV APACHE_LOG_DIR /var/log/apache2
-ENV APACHE_LOCK_DIR /var/run/lock
-ENV APACHE_PID_FILE /var/log/apache2/apache.pid
+ENV APACHE_LOG_DIR   /var/log/apache2
+ENV APACHE_LOG_DIR   /var/log/apache2
+ENV APACHE_LOCK_DIR  /var/run/lock
+ENV APACHE_RUN_DIR   /var/run/apache2
+ENV APACHE_PID_FILE  /var/log/apache2/apache.pid
 EXPOSE 80
 ADD html/index.html /var/www/html/index.html
 ENTRYPOINT ["/usr/sbin/apache2"]
