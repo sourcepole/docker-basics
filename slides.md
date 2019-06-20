@@ -412,7 +412,7 @@ Sendet SIGTERM und/oder SIGKILL an einen Container-Prozess
 ***
 ```bash
 ~$ docker ps
-CONTAINER ID        IMAGE                       COMMAND                CREATED             STATUS              PORTS                    NAMES
+CONTAINER ID        IMAGE                   COMMAND                CREATED             STATUS              PORTS                    NAMES
 04cbe4ab97d7        infrabricks/httpd:2.2   /usr/sbin/apache2 -D   11 minutes ago      Up 11 minutes       127.0.0.1:8000->80/tcp   cocky_fermi
 
 ~$ docker stop 04cb
