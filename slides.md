@@ -677,6 +677,8 @@ root@f8c1ac264325:/# grep n1 /etc/hosts
   * Skaliert nicht. (Was wenn ich 2x N1 habe?)
   * Abhängigkeiten nicht dynamisch (Wenn N1 neu, dann muss auch N2 neu)
 ---
+## Docker-Compose
+
 **`$ docker-compose `**
 #### Applikationen aus mehreren Containern
 
