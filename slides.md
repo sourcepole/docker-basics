@@ -98,7 +98,7 @@ Ansehen der lokal gespeicherten Images, inkl. Details
 ***
 ```bash
 $ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 centos              latest              70214e5d0a90        2 weeks ago         224 MB
 $ docker images –a
 $ docker inspect 70214e5d0a90
@@ -116,7 +116,7 @@ Einzelne Images aus dem lokalen Cache löschen
 ***
 ```bash
 $ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 centos              latest              70214e5d0a90        2 weeks ago         224 MB
 
 $ docker rmi 70214e5d0a90
@@ -337,7 +337,7 @@ Ein „Commit“ erzeugt ein neues Image auf Basis eines bestehenden Containers
 ffdb1d64ba4d94be13c561e05c4cb6eb05b4b7ca319e9bc649aedb8c23568058
 
 ~$ docker images
-REPOSITORY               TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
 <none>                   <none>              ffdb1d64ba4d        39 seconds ago      239.2 MB
 …
 ```
@@ -366,12 +366,12 @@ REPOSITORY               TAG                 IMAGE ID            CREATED        
 ~$ docker tag ffdb1d64ba4d infrabricks/httpd
 
 ~$ docker images
-REPOSITORY               TAG                 IMAGE ID            CREATED             VIRTUALSIZE
+REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
 infrabricks/httpd     latest              ffdb1d64ba4d        7 minutes ago       239.2 MB
 
 ~$ docker tag ffdb1d64ba4d infrabricks/httpd:2.2
 ~$ docker images
-REPOSITORY               TAG                 IMAGE ID            CREATED             VIRTUALSIZE
+REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
 infrabricks/httpd     latest              ffdb1d64ba4d        8 minutes ago       239.2 MB
 infrabricks/httpd     2.2                 ffdb1d64ba4d        8 minutes ago       239.2 MB
 ```
@@ -525,7 +525,7 @@ Successfully built 6ffc9f73c6d0
 
 ```bash
 ~$ docker images infrabricks/apache2
-REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
+REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
 cassini/apache2     latest              03783441cb05        About a minute ago   239.2 MB
 
 ~$ docker run \
@@ -597,7 +597,7 @@ Save, danach mit rmi images löschen und laden.
 ```bash
 ~$ docker tag ffdb1d64ba4d 127.0.0.1:5000/infrabricks/apache2:latest
 ~$ docker images
-REPOSITORY                            TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
 …
 127.0.0.1:5000/infrabricks/apache2   latest              ffdb1d64ba4d        About an hour ago   239.2 MB
 ~$ docker push 127.0.0.1:5000/infrabricks/apache2
