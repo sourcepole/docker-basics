@@ -665,6 +665,8 @@ N1_NAME=/n2/n1
   * Skaliert nicht. (Was wenn ich 2x N1 habe?)
   * Abhängigkeiten nicht dynamisch (Wenn N1 neu, dann muss auch N2 neu)
 ---
+## Docker-Compose
+
 **`$ docker-compose `**
 #### Applikationen aus mehreren Containern
 
