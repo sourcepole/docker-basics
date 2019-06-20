@@ -447,8 +447,6 @@ Interessant ist die SIZE-Spalte, welche Aktion wie viel zum FS-Volumen beigetrag
 **`$ docker run # VOLUMES` **
 #### Mounten von Verzeichnissen in Container
 
-Instanziieren eines einzelnen Containers
-Vermutlich das Kommando mit den meisten Parametern.
 ***
 ```bash
 $ mkdir test
