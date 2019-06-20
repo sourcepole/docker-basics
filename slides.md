@@ -455,7 +455,7 @@ Vermutlich das Kommando mit den meisten Parametern.
 ~$ mkdir test
 ~$ touch test/x
 
-$ docker run -ti -v /home/vagrant/test:/y ubuntu
+$ docker run -ti -v ~/test:/y ubuntu # muss ein absoluter Pfad sein
 
 root@27e2c738b5df:/# ls -al /y
 total 8
