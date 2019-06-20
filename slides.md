@@ -594,6 +594,18 @@ Save, danach mit rmi images löschen und laden.
 **`$ docker push` **
 #### Ein Image in eine (private) Registry hochladen
 
+Zu demonstrations-Zwecken wird ein Registry Container runtergeladen und gestartet:
+
+```bash
+$ docker pull registry:2
+2: Pulling from library/registry
+…
+$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
+…
+```
+
+Nun wird das image mit dem Namen des Registries ge'tag'ed und ins Registry gepusht:
+
 ```bash
 ~$ docker tag ffdb1d64ba4d 127.0.0.1:5000/infrabricks/apache2:latest
 ~$ docker images
