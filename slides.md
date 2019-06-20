@@ -1,9 +1,8 @@
 # Docker Basics Workshop
 
-**Walk-through Docker**
+**Original Author**
 
-  - Andreas Schmidt @aschmidt75
-  - Peter Rossbach @PRossbach
+  - Peter Rossbach https://github.com/rossbachp/docker-basics
 ---
 ## Was ist Docker?
 
