@@ -442,7 +442,7 @@ bfb8b5a2ad34        4 days ago          /bin/sh -c #(nop) ADD file:a889e7d86acdb
 511136ea3c5a        15 months ago                                                       0 B
 ```
 ***
-Interessant ist die SIZE-Spalte, welche Aktion wie viel zum FS-Volumen beigetragen hat ( Squashing *)
+Interessant ist die SIZE-Spalte, welche Aktion wie viel zum FS-Volumen beigetragen hat ("Squashing")
 
 -
 **`~$ docker run | VOLUMES`** 
