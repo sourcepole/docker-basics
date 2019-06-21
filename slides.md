@@ -413,7 +413,6 @@ Container müssen nicht zwingend das ganze Dateisystem mit allem drum und dran e
 $ mkdir hello
 $ cd hello
 hello$ cat hello.c
-cat hello.c 
 #include <stdio.h>
 
 int main() {
@@ -430,7 +429,7 @@ CMD ["/hello.exe"]
 
 hello$ docker build .
 Successfully built 47f944e398d4
-tpo@hier:/tmp/foo.rQMfV2$ docker run 47f944e398d4
+hello$ docker run 47f944e398d4
 Hallo
 
 ```
