@@ -405,6 +405,37 @@ vagrant@docker-workshop:~$ curl http://127.0.0.1:8000/
   `docker ps, docker top, docker inspect`
 
 ---
+### Ausflug: Container ohne "Betriebssystem"
+
+Container müssen nicht zwingend das ganze Dateisystem mit allem drum und dran enthalten.
+
+```bash
+$ mkdir hello
+$ cd hello
+hello$ cat hello.c
+cat hello.c 
+#include <stdio.h>
+
+int main() {
+        printf("Hallo\n");
+}
+hello$ gcc -static hello.c /usr/lib/x86_64-linux-gnu/libc.a -o hello.exe
+hello$ ls hello.exe
+hello.exe
+
+hello$ cat Dockerfile 
+FROM scratch
+COPY hello.exe /
+CMD ["/hello.exe"]
+
+hello$ docker build .
+Successfully built 47f944e398d4
+tpo@hier:/tmp/foo.rQMfV2$ docker run 47f944e398d4
+Hallo
+
+```
+
+---
 **`~$ docker stop | kill`** 
 #### Container stoppen
 
