@@ -744,17 +744,10 @@ Würde gerne als Abspann die noch fehlenden Kommandos kurz erläutern!
 
 ---
 ##
-  * Nach dem Link sollten wir ein Beispiel mit einer Gruppe von Container machen!
-    - Zugriff auf einen Restservice Webapp mit einer couchdb im Backend?
-    - java / tomcat / rest Service (Volumne) 7 couchdb als Speicher für die Dokumente
-    - All ist HTTP
-      - Zweite App ein Angular JS frontend das die diesesn CRUD Service nutzt!
-  * Starte mit fig.
   * Wollen wir das Commando docker exec erklären => debug Schau mal einer Kuck…
-    - Dann müssen wir den Tomcat auf der Basis von JDK bereitstellen, sonst fehlen die Java Tools..
-  * Sicherung der Couch DB und starten in einem anderen Container
+  * Sicherung der Redis DB und starten in einem anderen Container
     - Volumen ausgelagert
-    - Scratch Data Volumne für Data und log trennen
+    - Scratch Data Volume für Data und log trennen
   * Apache als LB verknüpfen und Orchestrieren.
   * Bleibt noch für den Ausblick
     - Test von Infrastruktur
