@@ -1,8 +1,8 @@
 # Docker Basics Workshop
 
-**Original Author**
+  * Original Autor: Peter Rossbach https://github.com/rossbachp/docker-basics
+  * Updates: Tomáš Pospíšek https://github.com/tpo/docker-basics
 
-  - Peter Rossbach https://github.com/rossbachp/docker-basics
 ---
 ## Was ist Docker?
 
