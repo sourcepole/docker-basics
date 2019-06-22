@@ -22,7 +22,8 @@ Die Werbung verspricht:
 
 ![](images/docker-command-daemon-deck.png)
 
-**`$ docker version` **
+---
+**`$ docker version`**
 #### Bestimmung der Version
 
 Bestimme der eigene Docker-Client und Docker Server-Version
@@ -47,7 +48,8 @@ Git commit (server): c78088f
 
 ![](images/docker-command-registry-deck.png)
 
-**`$ docker search` **
+---
+**`$ docker search`**
 #### Auf der Suche nach dem goldenen Image
 
 ***
@@ -69,7 +71,8 @@ centos    The official build of CentOS.   442       [OK]
   * Versionen (z.B. hier von CentOS) werden nicht angezeigt, nur das Repository
   * Besser zum Suchen: [Docker Hub](https://registry.hub.docker.com/search)
 
-**`$ docker pull` **
+---
+**`$ docker pull`**
 #### Wir brauchen das Image lokal um es zu verwenden
 
   * Download eines Repositories (oder Teilen davon) von der öffentlichen Docker-Registry.
@@ -84,9 +87,10 @@ Pulling repository centos
 $ docker pull redis:latest
 ```
 ***
-  * **Wichtig:** Tag mit angeben! Sonst wird das gesamte Repository gezogen (z.B. Ubuntu 12.04/12.10/13.04/13.10/14.04  >> 1GB)
+  * **Wichtig:** Tag mit angeben! Sonst wird das gesamte Repository gezogen (z.B. Ubuntu 12.04/12.10/13.04/13.10/14.04  >> 1GB)
 
-**`$ docker images ; docker inspect` **
+---
+**`$ docker images ; docker inspect`**
 #### Die lokalen Images ansehen
 
 Ansehen der lokal gespeicherten Images, inkl. Details
@@ -104,7 +108,8 @@ $ docker inspect 70214e5d0a90
 ...
 ```
 
-**`$ docker rmi` **
+---
+**`$ docker rmi`**
 #### Ein lokales Image entfernen
 
 Einzelne Images aus dem lokalen Cache löschen
@@ -121,7 +126,8 @@ $ docker rmi 70214e5d0a90
   * D.h. das Image lebt erstmal weiter, auch wenn der Container schon weg ist.
   * --force hilft im Notfall.
 
-**`$ docker history` **
+---
+**`$ docker history`**
 #### Zeig die Befehlshistorie des Images an
 ```bash
 $ docker history 1934124c12e6
@@ -141,7 +147,8 @@ c2a5714574ba        35 hours ago        /bin/sh -c groupadd -r tomcat -g 4242 &&
 
 ![](images/docker-command-images-deck.png)
 
-**`$ docker run` **
+---
+**`$ docker run`**
 #### Das wichtigste Kommando: Container starten!
 
 Instanziieren eines einzelnen Containers
@@ -161,7 +168,8 @@ CTRL+P CTRL+Q zum detachen der shell
   * Im Fall der Bash hier: Ein `exit` oder `CTRL-D` beendet die Shell, d.h. den Prozess, d.h. den Container.
   * So ist der Container aber noch laufigfähig vorhanden!
 
-### Was bedeutet ein `docker start`?
+---
+#### Was bedeutet ein `docker start`?
 
   * Müssen wir hier nicht erklären, was wirklich passiert ist?
   * Container start bedeutet ja einiges:
@@ -175,7 +183,8 @@ CTRL+P CTRL+Q zum detachen der shell
       - Ports Freigeben
     - Prozess starten mit einem bestimmten Nutzer
 
-**`$ docker ps` **
+---
+**`$ docker ps`**
 #### Container anzeigen
 
 Übersicht über laufende und gelaufene Container
@@ -197,11 +206,13 @@ $ docker ps –a | less
   * Es existieren verschiedene Filtermöglichkeiten (`docker ps --help`)
 
 
-**`$ docker ps ; docker attach` **
+---
+**`$ docker attach`**
 #### Sich mit interaktiven Containern verbinden
 
 
-**`$ docker rm` **
+---
+**`$ docker rm`**
 
 Container, deren Prozess beendet wurde bleiben in der Containerliste stehen (`docker ps –a`). Der `rm`-Befehl löscht diese.
 ***
@@ -216,8 +227,8 @@ e6aa98c81a41
   * Funktioniert nur mit abgelaufenen Containern (außer dann mit --force)
   * Besser: Beim run direkt --rm mitgeben
 
-
-**`$ docker logs` **
+---
+**`$ docker logs`**
 #### Ausgabe von Container anschauen
 
 ***
@@ -234,7 +245,8 @@ exit
   * `-tail == nur die letzten x Zeilen anzeigen`
 
 
-**`$ docker events` **
+---
+**`$ docker events`**
 #### Ereignisse des Docker Daemons ansehen
 
 Der Docker Daemon zeigt Ereignisse aus der API bzw. der Kommandozeile an.
@@ -247,7 +259,8 @@ $ docker events
   * Keine Besonderheiten. Nett zum Kennenlernen/Debuggen.
   * Sehr wichtig für Discovery-Mechanismen (l8r)
 
-**`$ docker diff` **
+---
+**`$ docker diff`**
 #### Unterschiede im Filesystem anzeigen
 
 Zeige Änderungen an, die der laufende Container im FS-Layer erzeugt
@@ -269,7 +282,8 @@ D /etc/sysctl.conf
 ***
   * Keine Besonderheiten. Interessantes Debugging-Werkzeug.
 
-**`$ docker top` **
+---
+**`$ docker top`**
 #### Prozessdetails eines Containers anzeigen
 
 STDOUT/STDERR eines Containers ansehen.
@@ -290,14 +304,13 @@ $ ps -p 7159
   * Nur rudimentäre Informationen (s. deep dive später)
   
 ---
-
 ## Ausflug
 
 Wollen wir hier einen Ausflug in die Namespaces und Cgroups wagen?
 Anzeige welche Rechte wirklich vergeben sind im /proc File System.
 
 ---
-## Ziel: Apache-Container manuell bauen 
+## Ziel: Apache-Container manuell bauen
 
 ```bash
 $ CID=`docker run -tdi ubuntu`
@@ -322,8 +335,8 @@ CTRL+P, CTRL+Q
 Wenn wir apachectl -D FOREGROUD nutzen klappt es!
 ```
 
-
-**`$ docker commit` **
+---
+**`$ docker commit`**
 #### Den Dateisystem-Stand festhalten
 
 Ein „Commit“ erzeugt ein neues Image auf Basis eines bestehenden Containers
@@ -340,6 +353,7 @@ REPOSITORY               TAG                 IMAGE ID            CREATED        
 ***
   * Man kann auch gleichzeitig das Image „taggen“
   * Pausieren des Containers ist möglich (z.B. für Datenbanken)
+
 ---
 ### Übung:
 
@@ -350,8 +364,8 @@ REPOSITORY               TAG                 IMAGE ID            CREATED        
 ---
 ## Weiter gehts
 
-
-**`$ docker tag` **
+---
+**`$ docker tag`**
 #### Namen für Images
 
   * Ein „tag“ gibt einem Image (anhand seiner ID) einen Namen
@@ -376,9 +390,11 @@ infrabricks/httpd     2.2                 ffdb1d64ba4d        8 minutes ago     
   * Das Image hat nun diesen Namen, nicht die Container!
   * Sobald man in (private) Registries hochladen möchte, wird ein Registry-Host im Namen notwendig
   * Tagen üben (Date Tag, Package Tag dpkg-query -l apache2)
----
-### Ziel: Apache-Container starten 
 
+---
+### Ziel: Apache-Container starten
+
+***
 ```bash
 $ docker run \
 	-tdi \
@@ -405,33 +421,45 @@ $ curl http://127.0.0.1:8000/
 
 Container müssen nicht zwingend das ganze Dateisystem mit allem drum und dran enthalten.
 
+***
 ```bash
 $ mkdir hello
 $ cd hello
 hello$ cat hello.c
+```
+
+```C
 #include <stdio.h>
 
 int main() {
         printf("Hallo\n");
 }
+```
+
+```bash
 hello$ gcc -static hello.c /usr/lib/x86_64-linux-gnu/libc.a -o hello.exe
 hello$ ls hello.exe
 hello.exe
 
 hello$ cat Dockerfile 
+```
+
+```Dockerfile
 FROM scratch
 COPY hello.exe /
 CMD ["/hello.exe"]
+```
 
+```bash
 hello$ docker build .
 Successfully built 47f944e398d4
 hello$ docker run 47f944e398d4
 Hallo
-
 ```
+***
 
 ---
-**`$ docker stop ; docker kill` **
+**`$ docker stop ; docker kill`**
 #### Container stoppen
 
 Sendet SIGTERM und/oder SIGKILL an einen Container-Prozess
@@ -451,10 +479,12 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 Stop kann mit –t <timeout_secs> ein Timeout gegeben werden, danach wird automatisch ein kill ausgeführt.
 
-**`$ docker history` **
+---
+**`$ docker history`**
 #### Wie wurde ein Image zusammengesetzt?
 
 Zeigt Änderungen der FS-Layer über die Zeit an.
+
 ***
 ```bash
 ~$ docker history infrabricks/httpd
@@ -469,11 +499,12 @@ bfb8b5a2ad34        4 days ago          /bin/sh -c #(nop) ADD file:a889e7d86acdb
 511136ea3c5a        15 months ago                                                       0 B
 ```
 ***
+
 Interessant ist die SIZE-Spalte, welche Aktion wie viel zum FS-Volumen beigetragen hat ("Squashing")
 
-
-**`$ docker run # VOLUMES` **
-#### Mounten von Verzeichnissen in Container
+---
+**`$ docker run`**
+#### Mounten von Verzeichnissen ("volumes") in Container
 
 ***
 ```bash
@@ -494,8 +525,9 @@ drwxr-xr-x 22 root root 4096 Sep 22 13:24 ..
   * Der Host-Pfad kann weggelassen werden. Dann verwaltet Docker diesen intern (*).
 
 ---
-## Ziel: Bauanleitung für Apache-Container 
+## Ziel: Bauanleitung für Apache-Container
 
+***
 ```bash
 $ mkdir apache2-build
 $ cd apache2-build/
@@ -503,6 +535,9 @@ $ cd apache2-build/
 ~/apache2-build$ echo '<html><body>Docker world</body></html>' > html/index.html
 
 ~/apache2-build$ cat Dockerfile
+```
+
+```Dockerfile
 FROM ubuntu:latest
 
 RUN apt-get update  -yqq
@@ -522,8 +557,10 @@ ADD html/index.html /var/www/html/index.html
 ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["-D", "FOREGROUND"]
 ```
+***
 
-**`$ docker build` **
+---
+**`$ docker build`**
 #### Definierte Container-Images bauen
 
 Anhand einer Baubeschreibung (Dockerfile) ein Image aufbauen.
@@ -544,12 +581,12 @@ Removing intermediate container 0c65dc10c5a6
 Successfully built 6ffc9f73c6d0
 ```
 ***
-  * Der Build-Mechanismus besitzt ein integriertes Caching. Bei Änderungen des    Dockerfiles werden nicht-geänderte Layer wiederverwendet.
+  * Der Build-Mechanismus besitzt ein integriertes Caching. Bei Änderungen des Dockerfiles werden nicht-geänderte Layer wiederverwendet.
   * Dem Image kann man seinen Aufbauprozess nicht mehr ansehen! Deshalb: Dockerfile ADDen.
   * Jede RUN-Zeile im Dockerfile erzeugt einen eigenen cache-baren Layer.
 
 ---
-## Ziel: Apache-Container starten 
+## Ziel: Apache-Container starten
 
 ```bash
 $ docker images infrabricks/apache2
@@ -574,13 +611,14 @@ $ curl http://127.0.0.1:9000/
 $ docker stop web && docker rm web
 ```
 
-**`$ docker port` **
+---
+**`$ docker port`**
 #### “Anonyme“ Port-Mappings anzeigen
 
 Wenn keine expliziten Port-Mappings mit –p angegeben werden, verwendet Docker freie High-Ports.
 Das Port-Kommando zeigt diese an.
-***
 
+***
 ```bash
 $ docker run -P --detach infrabricks/apache2
 c2bbd009cf3bd5846ac1f79e75c6b3502964afb49d6ad45ff190b51a2b85bfb9
@@ -593,12 +631,16 @@ $ docker port c2bbd009cf3b 80
 0.0.0.0:49153
 ```
 ***
+
 Keine Besonderheiten
 
-**`$ docker save ; docker load` **
+---
+**`$ docker save ; docker load`**
 #### Container-Images als Tarballs transportieren
+
 Speichert die FS-Layer eines Images als Tarball.
 Die lassen sich unabhängig von Registries transportieren.
+
 ***
 ```bash
 $ docker save -o ./apache2.tar infrabricks/apache2
@@ -615,15 +657,17 @@ $ tar tf apache2.tar
 ***
 Bringt erstaunlicherweise die Prozessorlast des Hosts hoch.
 
+---
 ### Übung:
 Save, danach mit rmi images löschen und laden.
 
-
-**`$ docker push` **
+---
+**`$ docker push`**
 #### Ein Image in eine (private) Registry hochladen
 
 Zu demonstrations-Zwecken wird ein Registry Container runtergeladen und gestartet:
 
+***
 ```bash
 $ docker pull registry:2
 2: Pulling from library/registry
@@ -631,9 +675,12 @@ $ docker pull registry:2
 $ docker run -d -p 5000:5000 --restart=always --name registry registry:2
 …
 ```
+***
 
+---
 Nun wird das image mit dem Namen des Registries ge'tag'ed und ins Registry gepusht:
 
+***
 ```bash
 ~$ docker tag ffdb1d64ba4d 127.0.0.1:5000/infrabricks/apache2:latest
 ~$ docker images
@@ -654,17 +701,23 @@ Image 96864a7d2df3 already pushed, skipping
 ffdb1d64ba4d: Image successfully pushed
 Pushing tag for rev [ffdb1d64ba4d] on {http://127.0.0.1:5000/v1/repositories/infrabricks/apache2/tags/latest}
 ```
+***
 
+---
 ### Docker Push/Pull
+
+***
 ```bash
 $ docker login
 $ docker push "infrabricks/apache2:latest"
 ```
+***
+
 ![](images/Docker-push-pull.png)
 
-***
   * `docker pull <username>/<imagename>:<tag>`
 
+---
 ### Sharing
 
 ![](images/gift_of_sharing_colorpg.jpg)
@@ -678,9 +731,12 @@ $ docker push "infrabricks/apache2:latest"
 ![](images/docker-command-images-deck.png)
 
 
-**`$ docker run --link` **
+---
+**`$ docker run --link`**
 #### Container miteinander verknüpfen
+
 Ein Container wird mit einem bereits laufenden Container „verknüpft“ – der neue Container erhält Environmentvariablen und Netzwerk-Freischaltungen
+
 ***
 ```bash
 $ docker run -tdi --name "n1" -p 8000:8000 ubuntu
@@ -702,18 +758,22 @@ root@f8c1ac264325:/# grep n1 /etc/hosts
 172.17.0.3      n1 cc79ec0c9ae
 ```
 ***
+
+---
   * Funktioniert nicht zyklisch (N2 ↔ N1, da der Container erstmal da sein muss)
   * Skaliert nicht. (Was wenn ich 2x N1 habe?)
   * Abhängigkeiten nicht dynamisch (Wenn N1 neu, dann muss auch N2 neu)
+
 ---
 ## Docker-Compose
 
-**`$ docker-compose `**
+**`$ docker-compose`**
 #### Applikationen aus mehreren Containern
 
   * Ausführliche Version siehe: https://docs.docker.com/compose/gettingstarted/
   * Code aus https://github.com/vegasbrianc/docker-compose-demo/blob/master/app.py
 
+***
 ```bash
 $ sudo apt-get install docker-compose 
 ```
@@ -724,8 +784,10 @@ $ cd composetest
 ```
 ***
 
+---
 Datei `app.py` erstellen:
 
+***
 ```python
 from redis import Redis
 from flask import Flask
@@ -738,9 +800,12 @@ def hello():
     redis.incr('hits')
     return 'Hello World! I have been seen %s times.\n' % redis.get('hits')
 ```
+***
 
+---
 `requirements.txt` erstellen:
 
+***
 ```bash
 flask
 redis
@@ -749,6 +814,7 @@ redis
 
 `Dockerfile` für Web Applikation erstellen:
 
+***
 ```Dockerfile
 FROM python:3.7-alpine
 WORKDIR /code
@@ -760,9 +826,12 @@ RUN pip install -r requirements.txt
 COPY . .
 CMD ["flask", "run"]
 ```
+***
 
+---
 `docker-compose.yml` erstellen:
 
+***
 ```YAML
 version: '3'
 services:
@@ -773,18 +842,22 @@ services:
   redis:
     image: "redis:alpine"
 ```
+***
 
+App starten:
+
+***
 ```bash
 ~composetest$ docker-compose up`
 ```
-
 ***
+
 ---
 
 Würde gerne als Abspann die noch fehlenden Kommandos kurz erläutern!
 
 ---
-##
+
   * Wollen wir das Commando docker exec erklären => debug Schau mal einer Kuck…
   * Sicherung der Redis DB und starten in einem anderen Container
     - Volumen ausgelagert
