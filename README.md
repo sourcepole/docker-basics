@@ -8,7 +8,7 @@ erstellten Schulungsunterlagen.
 
 Das Hauptmedium, um die Schulungsunterlagen
 darzustellen ist das direkte Anzeigen der
-[slides.md](https://github.com/sourcepole/docker-basics/blob/all_my_branches_merged/slides.mdmd)
+[slides.md](https://github.com/sourcepole/docker-basics/blob/all_my_branches_merged/slides.md)
 Datei im Browser, gerendert von Githubs
 Markdown Parser.
 
