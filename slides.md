@@ -477,7 +477,7 @@ drwxr-xr-x 22 root root 4096 Sep 22 13:24 ..
 ~/apache2-build$ mkdir html
 ~/apache2-build$ echo '<html><body>Docker world</body></html>' > html/index.html
 
-$ cat Dockerfile
+~/apache2-build$ cat Dockerfile
 FROM ubuntu:14.04
 
 RUN apt-get update -yqq
@@ -501,7 +501,7 @@ CMD ["-D", "FOREGROUND"]
 Anhand einer Baubeschreibung (Dockerfile) ein Image aufbauen.
 ***
 ```bash
-$ docker build -t infrabricks/apache2 .
+~/apache2-build$ docker build -t infrabricks/apache2 .
 Sending build context to Docker daemon 249.4 MB
 Sending build context to Docker daemon
 Step 0 : FROM ubuntu:14.04
@@ -665,7 +665,83 @@ N1_NAME=/n2/n1
   * Skaliert nicht. (Was wenn ich 2x N1 habe?)
   * Abhängigkeiten nicht dynamisch (Wenn N1 neu, dann muss auch N2 neu)
 ---
+## Docker-Compose
+
+**`$ docker-compose `**
+#### Applikationen aus mehreren Containern
+
+  * Ausführliche Version siehe: https://docs.docker.com/compose/gettingstarted/
+  * Code aus https://github.com/vegasbrianc/docker-compose-demo/blob/master/app.py
+
+```bash
+$ sudo apt-get install docker-compose 
+```
+
+```bash
+$ mkdir composetest
+$ cd composetest
+```
+***
+
+Datei `app.py` erstellen:
+
+```python
+from redis import Redis
+from flask import Flask
+
+app = Flask(__name__)
+redis = Redis(host='redis', port=6379)
+
+@app.route('/')
+def hello():
+    redis.incr('hits')
+    return 'Hello World! I have been seen %s times.\n' % redis.get('hits')
+```
+
+`requirements.txt` erstellen:
+
+```bash
+flask
+redis
+```
+***
+
+`Dockerfile` für Web Applikation erstellen:
+
+```Dockerfile
+FROM python:3.7-alpine
+WORKDIR /code
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["flask", "run"]
+```
+
+`docker-compose.yml` erstellen:
+
+```YAML
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
+```
+
+```bash
+~composetest$ docker-compose up`
+```
+
+***
+---
+
 Würde gerne als Abspann die noch fehlenden Kommandos kurz erläutern!
+
 ---
 ##
   * Nach dem Link sollten wir ein Beispiel mit einer Gruppe von Container machen!
