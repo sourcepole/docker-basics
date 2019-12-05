@@ -19,4 +19,10 @@ docker Container heraus rendern zu lassen
 diesem Verzeichnis), aber diese Möglichkeit
 wir mit weniger Intensität gepflegt.
 
+## Consulting/Schulung
+
+Ich bin verfügbar sowohl für Docker Schulung als auch
+für Docker Consulting. Sie können mich unter
+`tpo_hp at sourcepole.ch` erreichen.
+
 Tomas Pospíšek
