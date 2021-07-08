@@ -333,7 +333,7 @@ Wenn wir apachectl -D FOREGROUD nutzen klappt es!
 Ein „Commit“ erzeugt ein neues Image auf Basis eines bestehenden Containers
 ***
 ```bash
-~$ docker commit -a "infrabricks" -m "Just committed" 4fa4778a9653
+~$ docker commit -a "infrabricks" -m "installed apache" 4fa4778a9653
 ffdb1d64ba4d94be13c561e05c4cb6eb05b4b7ca319e9bc649aedb8c23568058
 
 ~$ docker images
